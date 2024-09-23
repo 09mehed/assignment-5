@@ -10,6 +10,234 @@
 </head>
 <body>
     <!-- navbar area start -->
-     
+    <nav class="bg-[#F9F7F3] sticky top-0 z-10 backdrop-blur-lg">
+        <div class="navbar container lg:px-16 justify-between">
+            <div class="navbar-start">
+              <a class="bg-[#B4F461] px-7 rounded-xl text-[#111111] font-bold py-2 text-xl cursor-pointer">Blog</a>
+            </div>
+            <div class="navbar-center flex">
+              <ul class="menu menu-horizontal px-1">
+                <div class="navbar-center flex justify-between items-center">
+                  <div class="flex justify-between items-center mx-5">
+                      <img class="w-10 " src="./assets/logo.png" alt="">
+                      <h2 class="font-semibold text-xl text-[#111111] pl-5 hidden lg:block">Donate Bangladesh</h2>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <div class="navbar-end">
+                <img src="./assets/coin.png" alt="">
+                <h2 class="pl-3 text-[#111111] text-xl">
+                  <span id="main-amount">5500</span> 
+                  BDT
+                </h2>
+            </div>
+        </div>
+    </nav>
+
+    <!-- section area start -->
+
+    <section class="container lg:px-16">
+        <div class="flex justify-center py-6 my-3 sticky top-16 z-10 backdrop-blur-lg">
+            <button
+              id="donation-tab"
+              class="py-2 px-7 rounded-xl transition-colors duration-200 text-[#111111] font-semibold bg-[#B4F461] mx-5"
+            >
+              Donation
+            </button>
+            <button
+              id="history-tab"
+              class="py-2 px-7 rounded-xl border border-gray-300 transition-colors duration-200 text-gray-600 font-semibold"
+            >
+              History
+            </button>
+        </div>
+        <div class="divided"></div>
+        <section id="section">
+            <!-- card 1 -->
+        <div class="card card-side border-gray-100 p-3 border-2 items-center grid grid-cols-1 lg:grid-cols-2">
+          <div class=" w-full">
+            <figure>
+              <img class="w-full"
+                src="./assets/noakhali.png"
+                alt="flood" />
+            </figure>
+          </div>
+          <div class="card-body w-full">
+              <div class="">
+                  <h3 class="flex items-center bg-[#F3bgF3F3] px-7 py-3 rounded-lg">
+                      <img class="mr-3" src="./assets/coin.png" alt="">
+                      <div>
+                        <span id="amount-received">0</span>
+                         BDT
+                      </div>
+                  </h3>
+              </div>
+            <h2 class="card-title">Donate for Flood at Noakhali, Bangladesh</h2>
+            <p class="pb-3">Many districts in Bangladesh have been underwater. This flood is gradually damaging Noakhali and many other surrounding areas. Millions of people are suffering from this unexpected situation. All the houses and crops are underwater, and is already in action to rescue those people and provide them with safe shelter, food, and medical support.</p>
+            <input id="input-amount" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+            <div class="card-actions justify-end pt-5">
+              <button id="donate-first-card" class="w-full btn bg-[#B4F461]" onclick="my_modal_1.showModal()">Donate Now</button>
+
+              <dialog id="my_modal_1" class="modal text-center">
+                <div class="modal-box">
+                  <h3 class="text-lg font-bold text-black">Congrates!</h3>
+                  <div class="pl-56 py-2">
+                    <img src="./assets/coin.png" alt="">
+                  </div>
+                  <p class="py-2">You Have Donated For Humankind</p>
+                  <p class="py-2">successfully</p>
+                  <div class="modal-action">
+                    <form method="dialog" class="pr-24" >
+                      <button id="btn-continue" class="btn bg-gray-300 px-16 btn-md transition-colors ease-in duration-300 text-black">Close Confirmation</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+            <p id="donate-first-error" class="text-red-500 text-xs mt-1 hidden">
+            ⚠️ Invalid amount!
+            </p>
+          </div>
+      </div>
+
+      <!-- card 2 -->
+      <div class="card card-side border-gray-100 p-3 border-2 items-center mt-3 grid grid-cols-1 lg:grid-cols-2">
+        <div class="w-full">
+          <figure>
+            <img class="w-full"
+              src="./assets/feni.png"
+              alt="flood" />
+          </figure>
+        </div>
+        <div class="card-body w-full lg:flex-1">
+            <div class="">
+                <h3 class="flex items-center bg-[#F3bgF3F3] px-7 py-3 rounded-lg">
+                    <img class="mr-3" src="./assets/coin.png" alt="">
+                    <div>
+                      <span id="amount-donate-2">600</span> 
+                      BDT</div>
+                </h3>
+            </div>
+          <h2 class="card-title">Donate for Flood Relief in Feni, Bangladesh</h2>
+          <p class="pb-3">In addition to food distribution, our response plan includes providing fodder, multipurpose cash assistance, and hygiene kits to further support the affected communities. In line with our commitment to inclusion, we are prioritizing the most affected and vulnerable populations, with special attention to persons with disabilities, ethnic communities, the elderly, widows, Hijra communities, Dalits, and families with pregnant and women-headed households.
+
+            Islamic Relief remains dedicated to delivering comprehensive and compassionate support, helping these communities recover and rebuild with dignity and resilience.</p>
+          <input id="input-amount-2" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+          <div class="card-actions justify-end pt-5">
+
+            <button id="donation-btn" class="w-full btn bg-[#B4F461]" onclick="my_modal_2.showModal()">Donate Now</button>
+
+              <dialog id="my_modal_2" class="modal text-center">
+                <div class="modal-box">
+                  <h3 class="text-lg font-bold text-black">Congrates!</h3>
+                  <div class="pl-56 py-2">
+                    <img src="./assets/coin.png" alt="">
+                  </div>
+                  <p class="py-2">You Have Donated For Humankind</p>
+                  <p class="py-2">successfully</p>
+                  <div class="modal-action">
+                    <form method="dialog" class="pr-24" >
+                      <button id="btn-continue" class="btn bg-gray-300 px-16 btn-md transition-colors ease-in duration-300 text-black">Close Confirmation</button>
+                    </form>
+                </form>
+              </dialog>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="card card-side border-gray-100 p-3 border-2 items-center mt-3 grid grid-cols-1 lg:grid-cols-2">
+        <div class="w-full">
+          <figure>
+            <img class="w-full"
+              src="./assets/quota-protest.png"
+              alt="quota" />
+          </figure>
+        </div>
+        <div class="card-body w-full">
+            <div class="">
+                <h3 class="flex items-center bg-[#F3bgF3F3] px-7 py-3 rounded-lg">
+                    <img class="mr-3" src="./assets/coin.png" alt="">
+                    <div>
+                      <span id="amount-donate">2400</span> 
+                      BDT
+                    </div>
+                </h3>
+            </div>
+          <h2 class="card-title">Aid for Injured in the Quota Movement</h2>
+          <p class="pb-3">Students from different medical institutions in Dhaka and across the country have been participating in the protests from the very beginning and have expressed unity with their peers, both online and on the streets. One such medical student said, "It's harder for medical students to protest because we're very few in number and our academics are based on our impression to the faculty. Still, we've been speaking out. When the quota protests intensified, I went to Dhaka University (DU) to express solidarity with my friends. On July 16, almost all medical colleges protested the vicious attacks on students by goons in helmets, be it on a large or small scale. So did ours. </p>
+          <input id="input-donate-card" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+          <div class="card-actions justify-end pt-5">
+
+            <button id="donate-card-3" class="w-full btn bg-[#B4F461]" onclick="my_modal_3.showModal()">Donate Now</button>
+            
+              <dialog id="my_modal_3" class="modal text-center">
+                <div class="modal-box">
+                  <h3 class="text-lg font-bold text-black">Congrates!</h3>
+                  <div class="pl-56 py-2">
+                    <img src="./assets/coin.png" alt="">
+                  </div>
+                  <p class="py-2">You Have Donated For Humankind</p>
+                  <p class="py-2">successfully</p>
+                  <div class="modal-action">
+                    <form method="dialog" class="pr-24" >
+                      <button id="btn-continue" class="btn bg-gray-300 px-16 btn-md transition-colors ease-in duration-300 text-black">Close Confirmation</button>
+                    </form>
+                </div>
+              </dialog>
+          </div>
+        </div>
+      </div>
+        </section>
+
+        <!-- History Section -->
+        <div
+          id="history-section"
+          class="hidden p-4 rounded-lg shadow-md border border-blue-200"
+        >
+          <div id="history-list" class="text-black">
+
+          </div>
+        </div>
+
+
+
+      <!-- modal section -->
+          
+
+
+
+
+
+          <!-- <button disabled onclick="my_modal_1.showModal()" id="nextButton"
+                                class="w-full btn bg-primary mt-5 text-lg text-white uppercase">
+                                Next
+                            </button> -->
+                            <!-- <dialog id="my_modal_1" class="modal">
+                                <form method="dialog"
+                                    class="modal-box px-5 py-10 flex flex-col justify-center items-center">
+                                    <i class="fa-regular fa-circle-check text-6xl text-primary"></i>
+                                    <h3 class="font-bold text-2xl text-primary my-5">
+                                        Congratulations
+                                    </h3>
+                                    <div class="text-center">
+                                        <p class="font-bold">
+                                            Thank you for booking our bus seats. We are working hard
+                                            to find the best Service and deals for you.
+                                        </p>
+                                    </div>
+                                    <p class="my-2">
+                                        Shortly you will find a confirmation in your email
+                                    </p>
+                                    <button id="btn-continue"
+                                        class="btn bg-primary px-16 btn-md hover:bg-black transition-colors ease-in duration-300 text-white">
+                                        Continue
+                                    </button>
+                                </form>
+                            </dialog> -->
+    </section>
+
+    <script src="index.js"></script>
 </body>
 </html>
