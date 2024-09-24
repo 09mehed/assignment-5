@@ -1,21 +1,26 @@
-const donateFirstCard = document.getElementById('donate-first-card');
+function getInputValue(id){
+    return parseFloat(document.getElementById(id).value);
+}
 
+const donateFirstCard = document.getElementById('donate-first-card');
 donateFirstCard.addEventListener('click', function(){
-    
-    const inputAmount = parseFloat(document.getElementById('input-amount').value);
-    const inputAmountHandler = Number(inputAmount);
+
+    const inputAmount = getInputValue('input-amount');
     const amountReceivedElement = document.getElementById('amount-received');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
 
     const mainAmountElement = document.getElementById('main-amount');
     const mainAmount = parseFloat(mainAmountElement.innerText);
 
-    if(inputAmountHandler >= 0 || inputAmountHandler === "number"){
-        const newAmount = amountReceived + inputAmountHandler;
+    if(inputAmount >= 0 || inputAmount === "number"){
+        const newAmount = amountReceived + inputAmount;
         amountReceivedElement.innerText = newAmount.toFixed(2); 
 
-        const mainAmountReceived = mainAmount - inputAmountHandler;
+        const mainAmountReceived = mainAmount - inputAmount;
         mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+
+        document.getElementById('my_modal_1');
+        my_modal_1.showModal();
     }else{
         alert ("Please Input a Valid Number"); 
     }
@@ -23,7 +28,7 @@ donateFirstCard.addEventListener('click', function(){
     const historyItem = document.createElement('div');
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${inputAmountHandler} Taka is Donate for Flood at Noakhali, Bangladesh</p>
+        <p class="text-xl text-black">${inputAmount} Taka is Donate for Flood at Noakhali, Bangladesh</p>
         <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
@@ -31,9 +36,9 @@ donateFirstCard.addEventListener('click', function(){
 
     if(inputAmount > mainAmount){
         alert ("Please Input a Valid Number"); 
+        return;
     }
 })
-
 
 // card 2
 
@@ -41,7 +46,8 @@ const donateFirstCard2 = document.getElementById('donation-btn');
 
 donateFirstCard2.addEventListener('click', function(){
     
-    const inputAmount = parseFloat(document.getElementById('input-amount-2').value);
+    // const inputAmount = parseFloat(document.getElementById('input-amount-2').value);
+    const inputAmount = getInputValue('input-amount-2');
     const inputAmountHandler = Number(inputAmount);
     const amountReceivedElement = document.getElementById('amount-donate-2');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
@@ -55,6 +61,9 @@ donateFirstCard2.addEventListener('click', function(){
 
         const mainAmountReceived = mainAmount - inputAmountHandler;
         mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+
+        document.getElementById('my_modal_2');
+        my_modal_2.showModal();
     }else{
         alert ("Please Input a Valid Number"); 
     }
@@ -78,7 +87,7 @@ const donateFirstCard3 = document.getElementById('donate-card-3');
 
 donateFirstCard3.addEventListener('click', function(){
 
-    const inputAmount = parseFloat(document.getElementById('input-donate-card').value);
+    const inputAmount = getInputValue('input-donate-card');
     const inputAmountHandler = Number(inputAmount);
     const amountReceivedElement = document.getElementById('amount-donate');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
@@ -92,6 +101,9 @@ donateFirstCard3.addEventListener('click', function(){
 
         const mainAmountReceived = mainAmount - inputAmountHandler;
         mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+
+        document.getElementById('my_modal_3');
+        my_modal_3.showModal();
     }else{
         alert ("Please Input a Valid Number"); 
     }
@@ -102,17 +114,11 @@ donateFirstCard3.addEventListener('click', function(){
         <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
-    historyList.value = "";
     historyList.insertBefore(historyItem, historyList.firstChild)
 
     if(inputAmountHandler <= 0 || isNaN(inputAmountHandler)){
         alert ("Please Input a Valid Number");
     }
-
-    // if(newAmount > incomeInput){
-    //     document.getElementById('logic-error').classList.remove('hidden');
-    //     return;
-    // }
     if(mainAmount < newAmount){
         document.getElementById('logic-error').classList.remove('hidden');
             return;
@@ -164,23 +170,35 @@ donationTab.addEventListener('click', function(){
     sectionForm.classList.remove('hidden');
 
     const historySection = document.getElementById('history-section');
-    historySection.classList.remove('hidden');
+    historySection.classList.add('hidden');
 })
   
-document.getElementById('donate-first-card').addEventListener('click', function(event){
+document.getElementById('donate-first-card').addEventListener('click', function(event) {
     event.preventDefault();
-    document.getElementById('my_modal_1').checked = true;
-    document.getElementById('my_modal_1').showModal();
-    document.getElementById('my_modal_1').close();
-})
-document.getElementById('donation-btn').addEventListener('click', function(event){
+    if (inputValue < 0) {
+        alert('Negative value allowed na!');
+    } else {
+        const modal = document.getElementById('my_modal_1');
+        modal.showModal();
+    }
+});
+
+document.getElementById('donation-btn').addEventListener('click', function(event) {
     event.preventDefault();
-        document.getElementById('my_modal_2');
-        
-})
-document.getElementById('donate-card-3').addEventListener('click', function(event){
+    if (inputValue < 0) {
+        alert('Negative value allowed na!');
+    } else {
+        const modal = document.getElementById('my_modal_2');
+        modal.showModal();
+    }
+});
+document.getElementById('donate-card-3').addEventListener('click', function(event) {
     event.preventDefault();
-        document.getElementById('my_modal_3');
-        my_modal_3.showModal();
-})
+    if (inputValue < 0) {
+        alert('Negative value allowed na!');
+    } else {
+        const modal = document.getElementById('my_modal_3');
+        modal.showModal();
+    }
+});
 
