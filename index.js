@@ -3,27 +3,29 @@ const donateFirstCard = document.getElementById('donate-first-card');
 donateFirstCard.addEventListener('click', function(){
     
     const inputAmount = parseFloat(document.getElementById('input-amount').value);
+    const inputAmountHandler = Number(inputAmount);
     const amountReceivedElement = document.getElementById('amount-received');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
-    const newAmount = amountReceived + inputAmount;
+
+    const newAmount = amountReceived + inputAmountHandler;
     amountReceivedElement.innerText = newAmount.toFixed(2); 
 
     const mainAmountElement = document.getElementById('main-amount');
     const mainAmount = parseFloat(mainAmountElement.innerText);
 
-    const mainAmountReceived = mainAmount + inputAmount;
+    const mainAmountReceived = mainAmount + inputAmountHandler;
     mainAmountElement.innerText = mainAmountReceived.toFixed(2);
 
     const historyItem = document.createElement('div');
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
         <p class="text-xl text-black">${mainAmountReceived} Donate for Flood at Noakhali, Bangladesh</p>
-        <p class="text-xl text-black">${new Date().toLocaleDateString()}</p>
+        <p class="text-xl text-black">${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
     historyList.insertBefore(historyItem, historyList.firstChild)
 
-    if(inputAmount <= 0 || isNaN(inputAmount)){
+    if(inputAmountHandler <= 0 || isNaN(inputAmountHandler)){
         alert ("Please Input a Valid Number"); 
     }
 
@@ -55,7 +57,7 @@ donateFirstCard2.addEventListener('click', function(){
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
         <p class="text-xl text-black">${mainAmountReceived} Donate for Flood Relief in Feni, Bangladesh</p>
-        <p class="text-xl text-black">${new Date().toLocaleDateString()}</p>
+        <p class="text-xl text-black">${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
     historyList.insertBefore(historyItem, historyList.firstChild)
@@ -86,7 +88,7 @@ donateFirstCard3.addEventListener('click', function(){
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
         <p class="text-xl text-black">${mainAmountReceived} Aid for Injured in the Quota Movement</p>
-        <p class="text-xl text-black">${new Date().toLocaleDateString()}</p>
+        <p class="text-xl text-black">${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
     historyList.insertBefore(historyItem, historyList.firstChild)
