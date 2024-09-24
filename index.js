@@ -33,6 +33,7 @@ donateFirstCard.addEventListener('click', function(){
     }
 
     const historyItem = document.createElement('div');
+    historyItem.style.marginTop = '1rem';
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
         <p class="text-xl text-black">${inputAmount} Taka is Donate for Flood at Noakhali, Bangladesh</p>
@@ -74,6 +75,7 @@ donateFirstCard2.addEventListener('click', function(){
         alert ("Please Input a Valid Number"); 
     }
     const historyItem = document.createElement('div');
+    historyItem.style.marginTop = '1rem';
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
         <p class="text-xl text-black">${inputAmount} Taka is Donate for Flood Relief in Feni, Bangladesh</p>
@@ -114,6 +116,7 @@ donateFirstCard3.addEventListener('click', function(){
         alert ("Please Input a Valid Number"); 
     }
     const historyItem = document.createElement('div');
+    historyItem.style.marginTop = '1rem';
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
         <p class="text-xl text-black">${inputAmount} Taka is Aid for Injured in the Quota Movement</p>
