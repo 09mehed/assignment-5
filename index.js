@@ -7,27 +7,27 @@ donateFirstCard.addEventListener('click', function(){
     const amountReceivedElement = document.getElementById('amount-received');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
 
-    const newAmount = amountReceived + inputAmountHandler;
-    amountReceivedElement.innerText = newAmount.toFixed(2); 
-
     const mainAmountElement = document.getElementById('main-amount');
     const mainAmount = parseFloat(mainAmountElement.innerText);
 
-    const mainAmountReceived = mainAmount + inputAmountHandler;
-    mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+    if(inputAmountHandler >= 0 || inputAmountHandler === "number"){
+        const newAmount = amountReceived + inputAmountHandler;
+        amountReceivedElement.innerText = newAmount.toFixed(2); 
+
+        const mainAmountReceived = mainAmount - inputAmountHandler;
+        mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+    }else{
+        alert ("Please Input a Valid Number"); 
+    }
 
     const historyItem = document.createElement('div');
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${mainAmountReceived} Donate for Flood at Noakhali, Bangladesh</p>
-        <p class="text-xl text-black">${new Date()}</p>
+        <p class="text-xl text-black">${inputAmountHandler} Taka is Donate for Flood at Noakhali, Bangladesh</p>
+        <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
     historyList.insertBefore(historyItem, historyList.firstChild)
-
-    if(inputAmountHandler <= 0 || isNaN(inputAmountHandler)){
-        alert ("Please Input a Valid Number"); 
-    }
 
     if(inputAmount > mainAmount){
         alert ("Please Input a Valid Number"); 
@@ -42,27 +42,32 @@ const donateFirstCard2 = document.getElementById('donation-btn');
 donateFirstCard2.addEventListener('click', function(){
     
     const inputAmount = parseFloat(document.getElementById('input-amount-2').value);
+    const inputAmountHandler = Number(inputAmount);
     const amountReceivedElement = document.getElementById('amount-donate-2');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
-    const newAmount = amountReceived + inputAmount;
-    amountReceivedElement.innerText = newAmount.toFixed(2); 
 
     const mainAmountElement = document.getElementById('main-amount');
     const mainAmount = parseFloat(mainAmountElement.innerText);
 
-    const mainAmountReceived = mainAmount + inputAmount;
-    mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+    if(inputAmountHandler >= 0 || inputAmountHandler === "number"){
+        const newAmount = amountReceived + inputAmountHandler;
+        amountReceivedElement.innerText = newAmount.toFixed(2); 
 
+        const mainAmountReceived = mainAmount - inputAmountHandler;
+        mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+    }else{
+        alert ("Please Input a Valid Number"); 
+    }
     const historyItem = document.createElement('div');
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${mainAmountReceived} Donate for Flood Relief in Feni, Bangladesh</p>
-        <p class="text-xl text-black">${new Date()}</p>
+        <p class="text-xl text-black">${inputAmountHandler} Taka is Donate for Flood Relief in Feni, Bangladesh</p>
+        <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
     historyList.insertBefore(historyItem, historyList.firstChild)
 
-    if(inputAmount <= 0 || isNaN(inputAmount)){
+    if(inputAmountHandler <= 0 || isNaN(inputAmountHandler)){
         alert ("Please Input a Valid Number"); 
     }
 })
@@ -74,31 +79,43 @@ const donateFirstCard3 = document.getElementById('donate-card-3');
 donateFirstCard3.addEventListener('click', function(){
 
     const inputAmount = parseFloat(document.getElementById('input-donate-card').value);
+    const inputAmountHandler = Number(inputAmount);
     const amountReceivedElement = document.getElementById('amount-donate');
     const amountReceived = parseFloat(amountReceivedElement.innerText);
-    const newAmount = amountReceived + inputAmount;
-    amountReceivedElement.innerText = newAmount.toFixed(2); 
 
     const mainAmountElement = document.getElementById('main-amount');
     const mainAmount = parseFloat(mainAmountElement.innerText);
-    const mainAmountReceived = mainAmount + inputAmount;
-    mainAmountElement.innerText = mainAmountReceived.toFixed(2);
 
+    if(inputAmountHandler >= 0 || inputAmountHandler === "number"){
+        const newAmount = amountReceived + inputAmountHandler;
+        amountReceivedElement.innerText = newAmount.toFixed(2); 
+
+        const mainAmountReceived = mainAmount - inputAmountHandler;
+        mainAmountElement.innerText = mainAmountReceived.toFixed(2);
+    }else{
+        alert ("Please Input a Valid Number"); 
+    }
     const historyItem = document.createElement('div');
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${mainAmountReceived} Aid for Injured in the Quota Movement</p>
-        <p class="text-xl text-black">${new Date()}</p>
+        <p class="text-xl text-black">${inputAmountHandler} Taka is Aid for Injured in the Quota Movement</p>
+        <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = document.getElementById('history-list');
+    historyList.value = "";
     historyList.insertBefore(historyItem, historyList.firstChild)
-    // document.getElementById('btn-continue').addEventListener('click', function(){
-    //     const popUp = document.getElementById('my_modal_1');
-    //     popUp.style.display = 'none';
-    // })
 
-    if(inputAmount <= 0 || isNaN(inputAmount)){
+    if(inputAmountHandler <= 0 || isNaN(inputAmountHandler)){
         alert ("Please Input a Valid Number");
+    }
+
+    // if(newAmount > incomeInput){
+    //     document.getElementById('logic-error').classList.remove('hidden');
+    //     return;
+    // }
+    if(mainAmount < newAmount){
+        document.getElementById('logic-error').classList.remove('hidden');
+            return;
     }
 })
 
@@ -150,3 +167,20 @@ donationTab.addEventListener('click', function(){
     historySection.classList.remove('hidden');
 })
   
+document.getElementById('donate-first-card').addEventListener('click', function(event){
+    event.preventDefault();
+    document.getElementById('my_modal_1').checked = true;
+    document.getElementById('my_modal_1').showModal();
+    document.getElementById('my_modal_1').close();
+})
+document.getElementById('donation-btn').addEventListener('click', function(event){
+    event.preventDefault();
+        document.getElementById('my_modal_2');
+        
+})
+document.getElementById('donate-card-3').addEventListener('click', function(event){
+    event.preventDefault();
+        document.getElementById('my_modal_3');
+        my_modal_3.showModal();
+})
+
