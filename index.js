@@ -31,12 +31,15 @@ donateFirstCard.addEventListener('click', function(){
     }else{
         alert ("Please Input a Valid Number"); 
     }
-
+    if(isNaN(inputAmount)){
+        alert ("Please Input a Valid Number"); 
+        return;
+    }
     const historyItem = document.createElement('div');
     historyItem.style.marginTop = '1rem';
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${inputAmount} Taka is Donate for Flood at Noakhali, Bangladesh</p>
+        <p class="text-2xl text-black font-semibold">${inputAmount} Taka is Donate for Flood at Noakhali, Bangladesh</p>
         <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = getInputValueById('history-list');
@@ -74,11 +77,15 @@ donateFirstCard2.addEventListener('click', function(){
     }else{
         alert ("Please Input a Valid Number"); 
     }
+    if(isNaN(inputAmount)){
+        alert ("Please Input a Valid Number"); 
+        return;
+    }
     const historyItem = document.createElement('div');
     historyItem.style.marginTop = '1rem';
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${inputAmount} Taka is Donate for Flood Relief in Feni, Bangladesh</p>
+        <p class="text-2xl text-black font-semibold">${inputAmount} Taka is Donate for Flood Relief in Feni, Bangladesh</p>
         <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = getInputValueById('history-list');
@@ -115,11 +122,15 @@ donateFirstCard3.addEventListener('click', function(){
     }else{
         alert ("Please Input a Valid Number"); 
     }
+    if(isNaN(inputAmount)){
+        alert ("Please Input a Valid Number"); 
+        return;
+    }
     const historyItem = document.createElement('div');
     historyItem.style.marginTop = '1rem';
     historyItem.className = "bg-white p-3 rounded-md border border-gray-200"
     historyItem.innerHTML = `
-        <p class="text-xl text-black">${inputAmount} Taka is Aid for Injured in the Quota Movement</p>
+        <p class="text-2xl text-black font-semibold">${inputAmount} Taka is Aid for Injured in the Quota Movement</p>
         <p class="text-xl text-black">Date: ${new Date()}</p>
     `
     const historyList = getInputValueById('history-list');
